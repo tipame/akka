@@ -145,6 +145,11 @@ Akka is now using Protobuf version 3.9.0 for serialization of messages defined b
 Cluster client has been deprecated as of 2.6 in favor of [Akka gRPC](https://doc.akka.io/docs/akka-grpc/current/index.html).
 It is not advised to build new applications with Cluster client, and existing users @ref[should migrate to Akka gRPC](../cluster-client.md#migration-to-akka-grpc).
 
+### JavaLogger
+
+`akka.event.jul.JavaLogger` for integration with `java.util.logging` has been deprecated. Use SLF4J instead,
+which also has support for `java.util.logging`.
+
 ### akka.Main
 
 `akka.Main` is deprecated in favour of starting the `ActorSystem` from a custom main class instead. `akka.Main` was not
