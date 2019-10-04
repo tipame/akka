@@ -254,7 +254,7 @@ class SourceOrFlow {
   }
 
   static
-  //#fold
+  // #fold
   class Histogram {
     final Long low;
     final Long high;
@@ -263,6 +263,7 @@ class SourceOrFlow {
       this.low = low;
       this.high = high;
     }
+
     public static Histogram INSTANCE = new Histogram(0L, 0L);
 
     public Histogram add(Integer number) {
@@ -273,17 +274,18 @@ class SourceOrFlow {
       }
     }
   }
-  //#fold
+  // #fold
 
   void foldExample() {
-    //#fold
+    // #fold
 
     // Folding over the numbers from 1 to 150:
     Source.range(1, 150)
-      .fold(Histogram.INSTANCE, (acc, n) -> acc.add(n))
-      .runForeach(h -> System.out.println("Histogram(" + h.low + ", " + h.high + ")"), materializer);
+        .fold(Histogram.INSTANCE, (acc, n) -> acc.add(n))
+        .runForeach(
+            h -> System.out.println("Histogram(" + h.low + ", " + h.high + ")"), materializer);
 
     // Prints: Histogram(99, 51)
-    //#fold
+    // #fold
   }
 }
